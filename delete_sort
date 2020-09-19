@@ -1,0 +1,65 @@
+import java.lang.*;
+import java.util.*;
+
+public class delete_sort
+{
+   public List<Integer> minDeletionSize(String[] A)
+   {
+        List<Integer> x = new ArrayList<Integer>();
+
+        boolean input_str = true;
+        for(int i=0;i<A[0].length();i++)
+        {
+            
+            if (input_str == true)
+            {
+                for(int j =0; j < A.length-1;j++)
+                {
+                    if(A[j].length() == A[j+1].length())
+                    {
+                        if(A[j].charAt(i) > A[j+1].charAt(i))
+                        {
+                            x.add(i);
+                            break;
+                        }
+                    }
+
+                    else
+                    {
+                        input_str = false;
+                    }
+                
+                }
+
+            }
+
+            else
+            {
+                x.add(-1);
+                break;
+            }
+        
+        }
+
+        System.out.println("\n{" +x.toString().replace("[","").replace("]","" + "}\n"));
+        return null;
+    }
+
+ 
+    public static void main(String[] args)
+    {
+    	delete_sort sort = new delete_sort();
+
+        String[] A1 = {"cba", "daf", "ghi"};
+        String[] A2 = {"a", "b"};
+        String[] A3 = {"xyz", "wvu", "tsr"};
+        String[] A4 = {"Captian", "Marvel", "saved", "the", "Avengers"};
+        
+        sort.minDeletionSize(A1);
+        sort.minDeletionSize(A2);
+        sort.minDeletionSize(A3);
+        sort.minDeletionSize(A4);
+
+    }
+
+}
